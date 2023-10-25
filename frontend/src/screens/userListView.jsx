@@ -27,14 +27,14 @@ const UserListView = ({ history }) => {
   }, [dispatch, history, successDelete, userInfo]);
 
   const deleteHandler = (id) => {
-    if (window.confirm("Are you sure")) {
+    if (window.confirm("Estás seguro?")) {
       dispatch(deleteUser(id));
     }
   };
 
   return (
     <>
-      <h1>Users</h1>
+      <h1>Usuarios</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -44,8 +44,8 @@ const UserListView = ({ history }) => {
           <thead>
             <tr>
               <th>ID</th>
-              <th>NAME</th>
-              <th>EMAIL</th>
+              <th>NOMBRE</th>
+              <th>CORREO</th>
               <th>ADMIN</th>
               <th></th>
             </tr>

@@ -28,37 +28,22 @@ const StudentsTableView = ({ keyword, pageNumber }) => {
           <Table striped bordered hover responsive className="table-sm">
             <thead>
               <tr>
-                <th>Stream</th>
-                <th>NAME</th>
-                <th>STATUS</th>
-                <th>CONTACT</th>
-                <th>Room NO</th>
-                <th>CITY</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Contacto del apoderado</th>
+                <th>Grado</th>
+                <th>Ciudad</th>
               </tr>
             </thead>
             <tbody>
               {students.map((student) => (
                 <tr key={student._id}>
-                  <td>{student.category}</td>
                   <td>
                     <Link to={`/student/${student._id}`}>{student.name}</Link>
                   </td>
+                  <td>{student.last_name}</td>
                   <td>
-                    <span
-                      style={{
-                        color:
-                          student.status === "Outside"
-                            ? "red"
-                            : student.status === "Home"
-                            ? "blue"
-                            : "black",
-                      }}
-                    >
-                      {student.status}
-                    </span>
-                  </td>
-                  <td>
-                    <a href={`tel:${student.contact}`}>{student.contact}</a>
+                    <a href={`tel:${student.fatherContact}`}>{student.fatherContact}</a>
                   </td>
                   <td>{student.roomNo}</td>
                   <td>{student.city}</td>

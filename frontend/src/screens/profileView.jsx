@@ -40,7 +40,7 @@ const ProfileView = ({ history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setMessage("Passwords do not match");
+      setMessage("Las contraseñas no coinciden");
     } else {
       dispatch(updateUserProfile({ id: user._id, name, email, password }));
     }
@@ -49,10 +49,10 @@ const ProfileView = ({ history }) => {
   return (
     <Row>
       <Col md={3}>
-        <h2>Profile</h2>
+        <h2>Perfil</h2>
         {message && <Message variant="danger">{message}</Message>}
 
-        {success && <Message variant="success">Profile Updated</Message>}
+        {success && <Message variant="success">Perfil actualizado</Message>}
         {loading ? (
           <Loader />
         ) : error ? (
@@ -60,47 +60,47 @@ const ProfileView = ({ history }) => {
         ) : (
           <Form onSubmit={submitHandler}>
             <Form.Group controlId="name">
-              <Form.Label>Name</Form.Label>
+              <Form.Label>Nombre</Form.Label>
               <Form.Control
                 type="name"
-                placeholder="Enter name"
+                placeholder="Ingresar nombre"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="email">
-              <Form.Label>Email Address</Form.Label>
+              <Form.Label>Correo electrónico</Form.Label>
               <Form.Control
                 type="email"
-                placeholder="Enter email"
+                placeholder="Ingresar correo electrónico"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="password">
-              <Form.Label>Password</Form.Label>
+              <Form.Label>Contraseña</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Enter password"
+                placeholder="Ingresar contraseña"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Form.Group controlId="confirmPassword">
-              <Form.Label>Confirm Password</Form.Label>
+              <Form.Label>Confirmar contraseña</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Confirm password"
+                placeholder="Confirmar contraseña"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               ></Form.Control>
             </Form.Group>
 
             <Button type="submit" variant="primary">
-              Update
+              Actualizar 
             </Button>
           </Form>
         )}

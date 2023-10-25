@@ -20,41 +20,41 @@ const Header = ({ history }) => {
       <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
         <Container>
           <LinkContainer to="/">
-            <Navbar.Brand>SVN AMS</Navbar.Brand>
+            <Navbar.Brand>SISTEMA DE ASISTENCIA</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Route render={({ history }) => <SearchBox history={history} />} />
             <Nav className="ml-auto">
-              <NavDropdown title="More">
+              <NavDropdown title="Más">
                 <LinkContainer to="/attendance">
-                  <NavDropdown.Item>Attendance</NavDropdown.Item>
+                  <NavDropdown.Item>Asistencia</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to="/addStudent">
-                  <NavDropdown.Item>Add Student</NavDropdown.Item>
+                  <NavDropdown.Item>Añadir Estudiante</NavDropdown.Item>
                 </LinkContainer>
                 <LinkContainer to="/analysis">
-                  <NavDropdown.Item>View Analysis</NavDropdown.Item>
+                  <NavDropdown.Item>Reporte</NavDropdown.Item>
                 </LinkContainer>
               </NavDropdown>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id="username">
                   <LinkContainer to="/profile">
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                    <NavDropdown.Item>Perfil</NavDropdown.Item>
                   </LinkContainer>
                   {userInfo.isAdmin && (
                     <LinkContainer to="/userList">
-                      <NavDropdown.Item>Users List</NavDropdown.Item>
+                      <NavDropdown.Item>Lista de Usuarios</NavDropdown.Item>
                     </LinkContainer>
                   )}
                   <NavDropdown.Item onClick={logoutHandler}>
-                    Logout
+                    Cerrar Sesión
                   </NavDropdown.Item>
                 </NavDropdown>
               ) : (
                 <LinkContainer to="/login">
                   <Nav.Link>
-                    <i className="fas fa-user"></i> Sign In
+                    <i className="fas fa-user"></i> Ingresar
                   </Nav.Link>
                 </LinkContainer>
               )}

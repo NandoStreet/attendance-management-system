@@ -14,15 +14,15 @@ const AnalysisComponent = () => {
     if (attendance) {
       setHeaders([
         { label: "Name", key: "name" },
-        { label: "Contact", key: "contact" },
+        { label: "Last Name", key: "last_name" },
         { label: "Room No", key: "roomNo" },
-        { label: "Status", key: "attendance" },
+        { label: "Date", key: "attendance" },
       ]);
       var csvMapList = [];
       Object.entries(attendance.details).map((student) => {
         var csvMap = {};
         csvMap["name"] = student[1].name;
-        csvMap["contact"] = student[1].contact;
+        csvMap["last_name"] = student[1].last_name;
         csvMap["roomNo"] = student[1].roomNo;
         csvMap["attendance"] = attendance.data[student[0]];
         csvMapList.push(csvMap);
@@ -43,10 +43,10 @@ const AnalysisComponent = () => {
               <Table striped bordered hover responsive className="table-sm">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Contact No</th>
-                    <th>Room No</th>
-                    <th>Attendance</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Grado</th>
+                    <th>Asistencia</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -55,8 +55,9 @@ const AnalysisComponent = () => {
                       return (
                         <tr key={student[0]}>
                           <th>{student[1].name}</th>
-                          <td>{student[1].contact}</td>
+                          <td>{student[1].last_name}</td>
                           <td>{student[1].roomNo}</td>
+                          {/*<td>{attendance.date}</td>*/}
                           <td>{attendance.data[student[0]]}</td>
                         </tr>
                       );
@@ -71,7 +72,7 @@ const AnalysisComponent = () => {
                   .substring(0, 15)}.csv`}
                 className="btn btn-primary"
               >
-                Download
+                Descargar
               </CSVLink>
             </>
           )}

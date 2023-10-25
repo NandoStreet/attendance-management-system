@@ -2,6 +2,7 @@ import express from "express";
 import userRoutes from "./routes/userRoutes.js";
 import studentRoutes from "./routes/studentRoutes.js";
 import attendanceRoutes from "./routes/attendanceRoutes.js";
+import fingerprintRoutes from "./routes/fingerprintRoutes.js";
 import path from "path";
 import morgan from "morgan";
 
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use("/users", userRoutes);
 app.use("/student", studentRoutes);
 app.use("/attendance", attendanceRoutes);
+app.use("/fingerprint", fingerprintRoutes);
 
 const __dirname = path.resolve();
 if (process.env.NODE_ENV === "production") {
@@ -30,7 +32,7 @@ if (process.env.NODE_ENV === "production") {
   );
 } else {
   app.get("/", (req, res) => {
-    res.send("API is running....");
+    res.send("API está corriendo...");
   });
 }
 app.use(errorHandler);
@@ -40,5 +42,5 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(
   PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+  console.log(`Serivdor corriendo en modo ${process.env.NODE_ENV} en el puerto ${PORT}`)
 );

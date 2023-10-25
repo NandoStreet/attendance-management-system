@@ -24,7 +24,8 @@ const AttendanceTableComponent = ({
     students.map((student) => {
       detailsData[student._id] = {
         name: student.name,
-        contact: student.contact,
+        last_name: student.last_name,
+        fatherContact: student.fatherContact,
         roomNo: student.roomNo,
       };
     });
@@ -42,11 +43,11 @@ const AttendanceTableComponent = ({
       <Table striped bordered hover responsive className="table-sm">
         <thead>
           <tr>
-            <th>NAME</th>
-            <th>Attendance</th>
-            <th>STATUS</th>
-            <th>CONTACT</th>
-            <th>CITY</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>Asistencia</th>
+            <th>Contacto del apoderado</th>
+            <th>Ciudad</th>
           </tr>
         </thead>
         <tbody>
@@ -57,6 +58,7 @@ const AttendanceTableComponent = ({
                   <td>
                     <Link to={`/student/${student._id}`}>{student.name}</Link>
                   </td>
+                  <td>{student.last_name}</td>                    
                   <td>
                     <Form>
                       <Form.Group controlId="status">
@@ -70,29 +72,15 @@ const AttendanceTableComponent = ({
                             setAttendanceMap(tempMap);
                           }}
                         >
-                          <option>Present</option>
-                          <option>On Duty</option>
-                          <option>Leave</option>
+                          <option>Presente</option>
+                          <option>Tardanza</option>
+                          <option>Falta</option>
                         </Form.Control>
                       </Form.Group>
                     </Form>
                   </td>
                   <td>
-                    <span
-                      style={{
-                        color:
-                          student.status === "Leave"
-                            ? "red"
-                            : student.status === "On Duty"
-                            ? "blue"
-                            : "black",
-                      }}
-                    >
-                      {student.status}
-                    </span>
-                  </td>
-                  <td>
-                    <a href={`tel:${student.contact}`}>{student.contact}</a>
+                    <a href={`tel:${student.fatherContact}`}>{student.fatherContact}</a>
                   </td>
                   <td>{student.city}</td>
                 </tr>
@@ -101,7 +89,7 @@ const AttendanceTableComponent = ({
         </tbody>
       </Table>
       <Button variant="success" onClick={updateAttendance}>
-        Update Attendance
+        Registrar Asistencia
       </Button>
     </>
   );

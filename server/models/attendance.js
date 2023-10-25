@@ -8,7 +8,7 @@ const attendanceSchema = mongoose.Schema(
     },
     date: {
       type: String,
-      default: Date().toString().substring(0, 15),
+      default: new Date().getUTCDate() + "/" + new Date().getUTCMonth() + "/" + new Date().getUTCFullYear(),
     },
     data: {
       type: Map,

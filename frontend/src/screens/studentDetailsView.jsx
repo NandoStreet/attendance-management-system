@@ -63,14 +63,14 @@ const StudentDetailsView = ({ match, history }) => {
   };
 
   const deleteStuden = () => {
-    if (window.confirm("Are you sure")) {
+    if (window.confirm("Estás seguro?")) {
       dispatch(deleteStudent(student._id));
     }
   };
   return (
     <>
       <Link className="btn btn-light my-3" to="/">
-        Go Back
+        Regresar
       </Link>
       {loading || loadingUpdate || loadingDelete ? (
         <Loading />
@@ -85,71 +85,39 @@ const StudentDetailsView = ({ match, history }) => {
               <Col md={3}>
                 <Image src={student.image} alt={student.name} fluid />
               </Col>
-              <Col md={3}>
+              <Col md={4}>
                 <ListGroup variant="flush">
                   <ListGroup.Item>
                     <h3>{student.name}</h3>
                   </ListGroup.Item>
                   <ListGroup.Item>
-                    <span>Phone No:{student.contact}</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <span>Father Contact:{student.fatherContact}</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <span>City:{student.city}</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <span>Address:{student.address}</span>
-                  </ListGroup.Item>
-                </ListGroup>
-              </Col>
-              <Col md={4}>
-                <Card>
-                  <ListGroup variant="flush">
-                    <ListGroup.Item>
                       <Row>
-                        <Col>Classroom No:</Col>
+                        <Col>Apellidos:</Col>
+                        <Col> {student.last_name}</Col>
+                      </Row>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                      <Row>
+                        <Col>Contacto del apoderado:</Col>
+                        <Col> {student.fatherContact}</Col>
+                      </Row>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                      <Row>
+                        <Col>Ciudad:</Col>
+                        <Col> {student.city}</Col>
+                      </Row>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                      <Row>
+                        <Col>Grado:</Col>
                         <Col> {student.roomNo}</Col>
                       </Row>
                     </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Block No:</Col>
-                        <Col> {student.blockNo}</Col>
-                      </Row>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Row>
-                        <Col>Status:</Col>
-                        <Col>
-                          <Form.Control
-                            size="sm"
-                            as="select"
-                            value={status}
-                            onChange={(e) => setStatus(e.target.value)}
-                          >
-                            {["Hostel", "Day scholar"].map((x) => (
-                              <option key={x} value={x}>
-                                {x}
-                              </option>
-                            ))}
-                          </Form.Control>
-                        </Col>
-                      </Row>
-                    </ListGroup.Item>
-                    <ListGroup.Item>
-                      <Button
-                        className="btn-block"
-                        type="button"
-                        onClick={updateStatus}
-                      >
-                        Update
-                      </Button>
-                    </ListGroup.Item>
-                  </ListGroup>
-                </Card>
+                </ListGroup>
               </Col>
+              <Col md={3}>
+                </Col>     
               <Col>
                 <ListGroup variant="flush">
                   <Row>

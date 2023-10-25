@@ -42,19 +42,19 @@ const HomeView = ({ match, history }) => {
             <Col xs lg="2"></Col>
             <Col md="auto">
               <ButtonGroup toggle>
-                {["Grid", "Table"].map((type) => (
+                {["Grid", "Tabla"].map((type) => (
                   <ToggleButton
                     key={type}
                     type="radio"
                     variant="secondary"
                     name="radio"
                     value={type}
-                    checked={(isGrid ? "Grid" : "Table") === type}
+                    checked={(isGrid ? "Grid" : "Tabla") === type}
                     onChange={(e) =>
                       setIsGrid(e.target.value === "Grid" ? true : false)
                     }
                   >
-                    {type === "Grid" ? <> Grid</> : <> Table </>}
+                    {type === "Grid" ? <> Grid</> : <> Tabla </>}
                   </ToggleButton>
                 ))}
               </ButtonGroup>
@@ -64,7 +64,7 @@ const HomeView = ({ match, history }) => {
         </Container>
       </>
 
-      <h1>Students</h1>
+      <h1>Estudiantes</h1>
       {loading ? (
         <Loading />
       ) : error ? (

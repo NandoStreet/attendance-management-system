@@ -18,18 +18,26 @@ const AttendanceView = () => {
   };
   return (
     <>
-      <h2>Take Attendance</h2>
-      <Form onSubmit={submitHandler} inline>
+      <h2>Tomar asistencia</h2>
+      <Form onSubmit={submitHandler} inline>        
         <Form.Control
-          type="text"
+          as="select"
           value={roomNo}
           name="roomNo"
-          placeholder="Enter RoomNo"
           className="mr-sm-2 ml-sm-5"
           onChange={(e) => changeRoomNo(e)}
-        ></Form.Control>
+        >
+          {["1ro de Primaria", "2do de Primaria", "3ro de Primaria",
+                  "4to de Primaria", "5to de Primaria", "6to de Primaria",
+                  "1ro de Secundaria","2do de Secundaria","3ro de Secundaria",
+                  "4to de Secundaria","5to de Secundaria"].map((x) => (
+                  <option key={x} value={x}>
+                    {x}
+                  </option>
+                ))}
+        </Form.Control>
         <Button type="submit" onClick={submitHandler}>
-          Get Students
+          Obtener estudiantes
         </Button>
       </Form>
       <AttendanceTable roomNo={roomNo} />

@@ -59,25 +59,24 @@ const AnalysisView = () => {
     <>
       <Row className="flex justify-content-between">
         <Link to="/" className="btn btn-light my-3">
-          Go Back
+          Regresar
         </Link>
         <div style={{ height: "40px", display: "flex" }}>
           <Button variant="outline-danger" size="sm" onClick={showModal}>
-            Delete Attendance
+            Eliminar asistencia
           </Button>
         </div>
       </Row>
       {loadingDelete && <Loading />}
       {errorDelete && <Message variant="success">{errorDelete}</Message>}
-      {successDelete && <Message variant="success">Attendance Deleted</Message>}
+      {successDelete && <Message variant="success">Asistencia eliminada</Message>}
 
       <Col>
         <Row>
           <Col>
-            <Row>Analysis for </Row>
-            <strong>
-              {startDate.toISOString().toString().substring(0, 10)}
-            </strong>
+            <Row>
+              Reporte de: <strong> {startDate.toISOString().toString().substring(0, 10)}</strong>.
+            </Row>
           </Col>
           <Col>
             <DatePicker
@@ -88,12 +87,12 @@ const AnalysisView = () => {
         </Row>
         <Modal show={modal} animation={true} onHide={closeModal}>
           <Modal.Header closeButton>
-            <Modal.Title>Enter Number of days before to delete</Modal.Title>
+            <Modal.Title>Ingresar número de días antes de eliminar</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Form>
               <Form.Group controlId="days">
-                <Form.Label>Enter no of days</Form.Label>
+                <Form.Label>Ingresar número de días</Form.Label>
                 <Form.Control
                   type="number"
                   placeholder="Enter days"
@@ -105,10 +104,10 @@ const AnalysisView = () => {
           </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={closeModal}>
-              Close
+              Cerrar
             </Button>
             <Button variant="outline-danger" onClick={startDelete}>
-              Delete
+              Eliminar
             </Button>
           </Modal.Footer>
         </Modal>

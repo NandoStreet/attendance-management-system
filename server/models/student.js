@@ -6,27 +6,7 @@ const studentSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    address: {
-      type: String,
-      required: true,
-    },
-    category: {
-      type: String,
-      required: true,
-    },
-    city: {
-      type: String,
-      required: true,
-    },
-    contact: {
-      type: Number,
-      required: true,
-    },
-    fatherContact: {
-      type: Number,
-      required: true,
-    },
-    image: {
+    last_name: {
       type: String,
       required: true,
     },
@@ -34,14 +14,17 @@ const studentSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    blockNo: {
+    city: {
       type: String,
       required: true,
     },
-    status: {
+    fatherContact: {
+      type: Number,
+      required: false,
+    },
+    image: {
       type: String,
       required: true,
-      default:false
     },
   },
   {

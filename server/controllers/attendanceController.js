@@ -12,7 +12,7 @@ const getAttendanceByRoomNo = asyncHandler(async (req, res) => {
   } else {
     res.status(404);
     throw new Error(
-      `You didn't take attendance today for Room  No:${req.params.roomId}`
+      ` No has tomado asistencia para ${req.params.roomId}`
     );
   }
 });
@@ -26,7 +26,7 @@ const getAttendance = asyncHandler(async (req, res) => {
     res.json(attendance);
   } else {
     res.status(404);
-    throw new Error(`You didn't take attendance ${date}!!`);
+    throw new Error(`No has tomado asistencia ${date}!!`);
   }
 });
 

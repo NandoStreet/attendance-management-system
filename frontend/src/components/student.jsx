@@ -10,20 +10,20 @@ const Student = ({ stuentDetails: student }) => {
       <Card.Body>
         <Link to={`/student/${student._id}`}>
           <Card.Title as="div">
-            <strong>{student.name}</strong>
+            <strong>{`${student.name} ${student.last_name}`}</strong>
           </Card.Title>
         </Link>
-
         <Row>
-          <Col>Room No: {student.roomNo}</Col>
+          <Col>Grado: {student.roomNo}</Col>
         </Row>
         <Row>
-          <Col>Stream: {student.category}</Col>
+          <Col>Ciudad: {student.city}</Col>
         </Row>
         <Card.Text>
-          Contact:
-          <a href={`tel:${student.contact}`}>{student.contact}</a>
+          Contacto del apoderado:
+          <a href={`tel:${student.fatherContact}`}>{student.fatherContact}</a>
         </Card.Text>
+        
       </Card.Body>
     </Card>
   );

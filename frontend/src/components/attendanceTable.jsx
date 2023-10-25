@@ -28,14 +28,14 @@ const AttendanceTable = ({ roomNo }) => {
         if (attendance.data[student._id]) {
           tempMap[student._id] = attendance.data[student._id];
         } else {
-          tempMap[student._id] = "Hostel";
+          tempMap[student._id] = "Presente";
         }
       });
       setAttendanceMap(attendanceMap);
     } else {
       students.map((student) => {
         var temp = attendanceMap;
-        temp[student._id] = "Hostel";
+        temp[student._id] = "Presente";
         setAttendanceMap(temp);
       });
     }
